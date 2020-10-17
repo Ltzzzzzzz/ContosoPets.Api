@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ContosoPets.Api</name>
+    </assembly>
+    <members>
+        <member name="M:ContosoPets.Api.Controllers.ProductsController.GetProductsAsync">
+            <summary>
+            获取所有产品
+            </summary>
+            <returns>返回产品列表</returns>
+            <response code="200">产品列表</response>
+        </member>
+        <member name="M:ContosoPets.Api.Controllers.ProductsController.GetProductAsync(System.Guid)">
+            <summary>
+            获取指定产品
+            </summary>
+            <param name="id">产品Id</param>
+            <returns>返回指定产品</returns>
+            <response code="200">找到指定产品</response>
+            <response code="400">参数错误</response>
+            <response code="404">找不到产品</response>
+        </member>
+        <member name="M:ContosoPets.Api.Controllers.ProductsController.AddProductAsync(ContosoPets.Api.Models.ProductAddDto)">
+            <summary>
+            创建产品
+            </summary>
+            <remarks>
+            提交参数:
+            
+                POST api/Products
+                {
+                    "name": "string",
+                    "price": 0
+                }
+            </remarks>
+            <param name="product">产品参数</param>
+            <returns>创建后的产品</returns>
+            <response code="201">返回新创建的产品</response>
+            <response code="400">参数错误</response>            
+        </member>
+        <member name="M:ContosoPets.Api.Controllers.ProductsController.DeleteProductAsync(System.Guid)">
+            <summary>
+            删除产品
+            </summary>
+            <param name="id">产品Id</param>
+            <returns>返回状态码</returns>
+            <response code="204">删除成功</response>
+            <response code="400">参数错误</response>
+            <response code="404">找不到产品</response>
+        </member>
+        <member name="M:ContosoPets.Api.Controllers.ProductsController.UpdateProductAsync(System.Guid,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{ContosoPets.Api.Models.Product})">
+            <summary>
+            修改产品信息
+            </summary>
+            <remarks>
+            例子：
+            
+                原数据
+                {
+                    "baz": "qux",
+                    "foo": "bar"
+                }
+            
+                patch参数格式
+                [
+                    {
+                        { "op": "replace", "path": "/baz", "value": "boo" },
+                        { "op": "add", "path": "/hello", "value": ["world"] },
+                        { "op": "remove", "path": "/foo" }
+                    }
+                ]
+            
+                结果
+                {
+                    "baz": "boo",
+                    "hello": ["world"]
+                }
+            
+            </remarks>
+            <param name="id">产品Id</param>
+            <param name="patch">patch参数</param>
+            <returns>成功返回204，找不到返回404</returns>
+        </member>
+    </members>
+</doc>
