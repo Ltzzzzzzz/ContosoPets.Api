@@ -30,7 +30,7 @@
             
                 POST api/Products
                 {
-                    "name": "string",
+                    "produtcName": "string",
                     "price": 0
                 }
             </remarks>
